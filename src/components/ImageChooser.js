@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 function ImageChooser() {
+  const fileInputRef = useRef('');
+
+  const openFileDialog = () => {
+    fileInputRef.current.click();
+  };
+
   return (
     <div className="flex flex-col items-center justify-center rounded-lg shadow-2xl px-10 py-10 max-w-2xl w-3/4">
       <h1 className="text-xl m-2 mt-8">Upload your image</h1>
@@ -16,9 +22,13 @@ function ImageChooser() {
         </p>
       </div>
       <p className="text-sm text-gray-600 my-5">Or</p>
-      <button className="rounded-lg bg-indigo-600 text-white py-2 px-6 my-5">
+      <button
+        onClick={openFileDialog}
+        className="rounded-lg bg-indigo-600 text-white py-2 px-6 my-5 focus:outline-none"
+      >
         Choose a file
       </button>
+      <input type="file" ref={fileInputRef} className="hidden"></input>
     </div>
   );
 }
