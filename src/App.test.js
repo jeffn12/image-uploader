@@ -1,15 +1,32 @@
 import React from 'react';
-import { fireEvent, render } from '@testing-library/react';
+import { createEvent, fireEvent, render } from '@testing-library/react';
 import ImageChooser from './components/ImageChooser';
 
 describe('User Stories', () => {
-  test('User story: I can drag and drop an image to upload it', () => {});
+  test('User story: I can drag and drop an image to upload it', () => {
+    const { getByRole } = render(<ImageChooser />);
+    const dropzone = getByRole('generic', { name: 'imageDropZone' });
+    const dropEvent = createEvent.drop(dropzone);
+    const fileList = [
+      new File(['test'], 'test_file.jpg', { type: 'image/jpg' }),
+    ];
+    Object.defineProperty(dropEvent, 'dataTransfer', {
+      value: {
+        files: {
+          item: (itemIndex) => fileList[itemIndex],
+          length: fileList.length,
+        },
+      },
+    });
+
+    fireEvent(dropzone, dropEvent);
+  });
   test('User story: I can choose to select an image from my folder', () => {
     render(<ImageChooser />);
     const button = document.getElementById('fileChooserButton');
     fireEvent.click(button, {
       target: {
-        files: [new File(['hey'], 'test_file.jpg', { type: 'image/jpg' })],
+        files: [new File(['test'], 'test_file.jpg', { type: 'image/jpg' })],
       },
     });
   });

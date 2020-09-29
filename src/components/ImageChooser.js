@@ -30,6 +30,7 @@ function ImageChooser() {
       <h1 className="text-xl m-2 mt-8">Upload your image</h1>
       <p className="text-xs m-2">File should be Jpeg, Png...</p>
       <div
+        aria-label="imageDropZone"
         className={`bg-indigo-${
           highlight ? 200 : 100
         } border-2 border-dashed border-indigo-${
