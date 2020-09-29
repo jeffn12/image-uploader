@@ -7,6 +7,13 @@ function ImageChooser() {
     fileInputRef.current.click();
   };
 
+  const handleFilesAdded = (e) => {
+    const files = Object.keys(e.target.files).map(
+      (file) => e.target.files[file]
+    );
+    console.log(files);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center rounded-lg shadow-2xl px-10 py-10 max-w-2xl w-3/4">
       <h1 className="text-xl m-2 mt-8">Upload your image</h1>
@@ -28,7 +35,12 @@ function ImageChooser() {
       >
         Choose a file
       </button>
-      <input type="file" ref={fileInputRef} className="hidden"></input>
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFilesAdded}
+        className="hidden"
+      ></input>
     </div>
   );
 }
