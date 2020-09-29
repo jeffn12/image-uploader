@@ -1,9 +1,10 @@
 import React from 'react';
+import ImageChooser from './components/ImageChooser';
 
 function App() {
   return (
-    <div className="App">
-      <header className="text-center text-xl ">Image Uploader</header>
+    <div className="flex flex-col items-center justify-center w-screen h-screen">
+      <ImageChooser />
     </div>
   );
 }
