@@ -8,7 +8,17 @@ function ImageChooser() {
     fileInputRef.current.click();
   };
 
+  const handleFileDrop = (e) => {
+    e.preventDefault();
+    const files = Object.keys(e.dataTransfer.files).map(
+      (file) => e.dataTransfer.files[file]
+    );
+    console.log(files);
+    setHighlight(false);
+  };
+
   const handleFilesAdded = (e) => {
+    e.preventDefault();
     const files = Object.keys(e.target.files).map(
       (file) => e.target.files[file]
     );
@@ -24,9 +34,22 @@ function ImageChooser() {
           highlight ? 200 : 100
         } border-2 border-dashed border-indigo-${
           highlight ? 300 : 200
-        } rounded-lg m-2 w-full flex flex-col items-center`}
-        onDragOver={() => setHighlight(true)}
-        onDragLeave={() => setHighlight(false)}
+        } rounded-lg m-2 w-full flex flex-col items-center cursor-pointer`}
+        onDragEnter={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          e.dataTransfer.dropEffect = 'copyMove';
+        }}
+        onDragOver={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setHighlight(true);
+        }}
+        onDragLeave={(e) => {
+          setHighlight(false);
+        }}
+        onDrop={handleFileDrop}
+        onClick={openFileDialog}
       >
         <img
           src="/upload-holder.svg"
