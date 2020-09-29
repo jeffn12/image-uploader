@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
 function ImageChooser() {
+  const [highlight, setHighlight] = useState(false);
   const fileInputRef = useRef('');
 
   const openFileDialog = () => {
@@ -18,7 +19,15 @@ function ImageChooser() {
     <div className="flex flex-col items-center justify-center rounded-lg shadow-2xl px-10 py-10 max-w-2xl w-3/4">
       <h1 className="text-xl m-2 mt-8">Upload your image</h1>
       <p className="text-xs m-2">File should be Jpeg, Png...</p>
-      <div className="bg-indigo-100 border-2 border-dashed border-indigo-200 rounded-lg m-2 w-full flex flex-col items-center">
+      <div
+        className={`bg-indigo-${
+          highlight ? 200 : 100
+        } border-2 border-dashed border-indigo-${
+          highlight ? 300 : 200
+        } rounded-lg m-2 w-full flex flex-col items-center`}
+        onDragOver={() => setHighlight(true)}
+        onDragLeave={() => setHighlight(false)}
+      >
         <img
           src="/upload-holder.svg"
           alt="gray mountains with blue moon in background"
