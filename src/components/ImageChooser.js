@@ -2,8 +2,8 @@ import React from 'react';
 
 function ImageChooser() {
   return (
-    <div className="flex flex-col items-center justify-center rounded-lg shadow-2xl p-5 py-10 w-1/2">
-      <h1 className="text-xl m-2">Upload your image</h1>
+    <div className="flex flex-col items-center justify-center rounded-lg shadow-2xl px-10 py-10 max-w-2xl w-3/4">
+      <h1 className="text-xl m-2 mt-8">Upload your image</h1>
       <p className="text-xs m-2">File should be Jpeg, Png...</p>
       <div className="bg-indigo-100 border-2 border-dashed border-indigo-200 rounded-lg m-2 w-full flex flex-col items-center">
         <img
