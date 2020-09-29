@@ -62,6 +62,7 @@ function ImageChooser() {
       </div>
       <p className="text-sm text-gray-600 my-5">Or</p>
       <button
+        id="fileChooserButton"
         onClick={openFileDialog}
         className="rounded-lg bg-indigo-600 text-white py-2 px-6 my-5 focus:outline-none"
       >
