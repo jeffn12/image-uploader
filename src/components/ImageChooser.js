@@ -38,12 +38,9 @@ function ImageChooser() {
         } rounded-lg m-2 w-full flex flex-col items-center cursor-pointer`}
         onDragEnter={(e) => {
           e.preventDefault();
-          e.stopPropagation();
-          e.dataTransfer.dropEffect = 'copyMove';
         }}
         onDragOver={(e) => {
           e.preventDefault();
-          e.stopPropagation();
           setHighlight(true);
         }}
         onDragLeave={(e) => {

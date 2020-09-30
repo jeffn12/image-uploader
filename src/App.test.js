@@ -2,6 +2,21 @@ import React from 'react';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 import ImageChooser from './components/ImageChooser';
 
+/**
+ * TODO:
+ *
+ * - test remove highlight on dragleave
+ */
+describe('My tests', () => {
+  test('The dropzone highlights on drag over', () => {
+    const { getByRole } = render(<ImageChooser />);
+    const dropzone = getByRole('generic', { name: 'imageDropZone' });
+    fireEvent.dragOver(dropzone);
+    expect(dropzone).toHaveClass('bg-indigo-200');
+    expect(dropzone).toHaveClass('border-indigo-300');
+  });
+  test('The dropzone background resets on drag leave', () => {});
+});
 describe('User Stories', () => {
   test('User story: I can drag and drop an image to upload it', () => {
     const { getByRole } = render(<ImageChooser />);
