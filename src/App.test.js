@@ -15,7 +15,13 @@ describe('My tests', () => {
     expect(dropzone).toHaveClass('bg-indigo-200');
     expect(dropzone).toHaveClass('border-indigo-300');
   });
-  test('The dropzone background resets on drag leave', () => {});
+  test('The dropzone background resets on drag leave', () => {
+    const { getByRole } = render(<ImageChooser />);
+    const dropzone = getByRole('generic', { name: 'imageDropZone' });
+    fireEvent.dragLeave(dropzone);
+    expect(dropzone).toHaveClass('bg-indigo-100');
+    expect(dropzone).toHaveClass('border-indigo-200');
+  });
 });
 describe('User Stories', () => {
   test('User story: I can drag and drop an image to upload it', () => {
