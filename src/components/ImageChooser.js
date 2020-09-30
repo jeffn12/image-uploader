@@ -1,8 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 function ImageChooser() {
   const [highlight, setHighlight] = useState(false);
+  const [selectedFiles, setSelectedFiles] = useState(null);
   const fileInputRef = useRef('');
+
+  useEffect(() => {}, [selectedFiles]);
 
   const openFileDialog = () => {
     fileInputRef.current.click();
@@ -13,7 +16,7 @@ function ImageChooser() {
     const files = Object.keys(e.dataTransfer.files).map(
       (file) => e.dataTransfer.files[file]
     );
-    console.log(files);
+    setSelectedFiles(files);
     setHighlight(false);
   };
 
@@ -22,7 +25,7 @@ function ImageChooser() {
     const files = Object.keys(e.target.files).map(
       (file) => e.target.files[file]
     );
-    console.log(files);
+    setSelectedFiles(files);
   };
 
   return (
