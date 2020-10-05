@@ -2,19 +2,27 @@ import React from 'react';
 
 function ResponseScreen() {
   return (
-    <div className="flex flex-col items-center justify-content-center shadow-2xl w-3/4 p-5 rounded-lg">
-      <i>GREEN CHECK MARK</i>
-      <p className="text-xl">Uploaded Successfully!</p>
-      <div className="w-5/6">
-        <img className="w-full" src="logo192.png" alt="uploaded" />
+    <div className="flex flex-col items-center justify-content-center shadow-2xl w-3/4 p-10 rounded-lg max-w-lg">
+      <img
+        src="/green_check_mark.png"
+        alt="white check mark on rounded green background"
+        className="w-20 h-20"
+      ></img>
+      <p className="text-2xl">Uploaded Successfully!</p>
+      <div className="w-full h-64 m-5 border-2 border-gray-500 rounded-lg items-center justify-center">
+        <img
+          className="self-center rounded-lg h-full border-2 border-gray-400"
+          src="logo512.png"
+          alt="uploaded"
+        />
       </div>
-      <div className="flex align-stretch border-2 bg-indigo-100 border-indigo-200 h-12 w-full rounded-lg m-1">
+      <div className="flex items-center border-2 bg-indigo-100 border-indigo-200 h-12 w-full rounded-lg m-1">
         <input
           type="text"
-          className="focus:outline-none bg-indigo-100 m-2 w-3/4"
+          className="focus:outline-none bg-indigo-100 m-2 w-3/4 text-xs"
         />
-        <button className="rounded-lg bg-indigo-600 text-white focus:outline-none p-4 text-xs w-1/3">
-          Copy URL
+        <button className="rounded-lg bg-indigo-600 text-white focus:outline-none text-xs w-1/3 h-full">
+          Copy Link
         </button>
       </div>
     </div>
