@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function ResponseScreen() {
+  const [linkText, setLinkText] = useState('https://linkText');
+
   return (
     <div className="flex flex-col items-center justify-content-center shadow-2xl w-3/4 p-10 rounded-lg max-w-lg">
       <img
@@ -17,13 +19,11 @@ function ResponseScreen() {
         />
       </div>
       <div className="flex items-center border-2 bg-indigo-100 border-indigo-200 h-12 w-full rounded-lg m-1">
-        <p className="focus:outline-none bg-indigo-100 m-2 w-3/4 text-xs">
-          http://linkText
-        </p>
+        <p className="bg-indigo-100 m-2 w-3/4 text-xs">{linkText}</p>
         <button
-          className="rounded-lg bg-indigo-600 text-white focus:outline-none text-xs w-1/3 h-full hover:bg-indigo-800"
-          onClick={() => {
-            navigator.clipboard.writeText('https://linkText');
+          className="rounded-lg bg-indigo-600 text-white focus:outline-none focus:bg-indigo-700 text-xs w-1/3 h-full hover:bg-indigo-800"
+          onClick={(e) => {
+            navigator.clipboard.writeText(linkText);
           }}
         >
           Copy Link
