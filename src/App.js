@@ -1,5 +1,7 @@
 import React from 'react';
+/* eslint-disable-next-line no-unused-vars*/
 import ImageChooser from './components/ImageChooser';
+/* eslint-disable-next-line no-unused-vars*/
 import Loading from './components/Loading';
 import ResponseScreen from './components/ResponseScreen';
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function ResponseScreen() {
+  /* eslint-disable-next-line no-unused-vars*/
   const [linkText, setLinkText] = useState('https://linkText');
 
   return (
