@@ -1,0 +1,10 @@
+env:
+  - NODE_ENV="production"
+language: node_js
+node_js:
+  - 12
+cache: npm
+install: npm install
+script:
+  - npm run test
+  - npm run build
