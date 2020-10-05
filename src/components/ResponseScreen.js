@@ -9,11 +9,11 @@ function ResponseScreen() {
         className="w-20 h-20"
       ></img>
       <p className="text-2xl">Uploaded Successfully!</p>
-      <div className="w-full h-64 m-5 border-2 border-gray-500 rounded-lg items-center justify-center">
+      <div className="flex w-full h-64 m-5 rounded-lg items-center justify-center">
         <img
-          className="self-center rounded-lg h-full border-2 border-gray-400"
-          src="logo512.png"
-          alt="uploaded"
+          className="rounded-lg cover max-w-full max-h-full"
+          src="/logo512.png"
+          alt="uploaded file display"
         />
       </div>
       <div className="flex items-center border-2 bg-indigo-100 border-indigo-200 h-12 w-full rounded-lg m-1">
