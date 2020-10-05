@@ -1,5 +1,8 @@
 <!-- Please update value in the {}  -->
 
+<img src="https://travis-ci.com/jeffn12/image-uploader.svg?branch=master" alt="Travis CI Status">
+<a href="https://jneu-uploader.netlify.app/" target="_blank">
+<img src="https://api.netlify.com/api/v1/badges/bc8c8a0a-4c64-4b3b-a452-13a9c28c5dee/deploy-status" alt="Netlify Status"></a>
 <h1 align="center">Image Uploader</h1>
 
 <div align="center">
@@ -52,7 +55,6 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 
 - [React](https://reactjs.org/)
   This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- [Vue.js](https://vuejs.org/)
 - [Tailwind](https://tailwindcss.com/)
 
 ## Features
@@ -69,7 +71,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com/jeffn12/image-uploader.git
 
 # Install dependencies
 $ npm install
@@ -88,6 +90,5 @@ $ npm start
 
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- Website [jeffneuberger.dev](https://www.jeffneuberger.dev)
+- GitHub [@jeffn12](https://github.com/jeffn12)
