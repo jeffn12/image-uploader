@@ -29,12 +29,9 @@ function App() {
             // use signed URL as endpoint to send img
             axios.put(uploadURL, files[0]).then((res) => {
               console.log(res);
-              // setURL(return value)
               setURL(
                 'https://jlnupload.s3.us-east-1.amazonaws.com/' + files[0].name
               );
-              // setFiles(null)
-              setFiles(null);
             });
           })
           .catch((err) => {
@@ -48,7 +45,7 @@ function App() {
     <div className="flex flex-col items-center justify-center w-screen h-screen">
       {!files && <ImageChooser files={files} setFiles={setFiles} />}
       {files && <Loading />}
-      {url && <ResponseScreen />}
+      {url && <ResponseScreen url={url} />}
     </div>
   );
 }
