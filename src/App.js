@@ -7,13 +7,12 @@ import ResponseScreen from './components/ResponseScreen';
 
 function App() {
   const [files, setFiles] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [url, setURL] = useState('');
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen">
       {!files && <ImageChooser files={files} setFiles={setFiles} />}
-      {loading && <Loading />}
+      {files && <Loading />}
       {url && <ResponseScreen />}
     </div>
   );
