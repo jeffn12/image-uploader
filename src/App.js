@@ -7,11 +7,13 @@ import ResponseScreen from './components/ResponseScreen';
 
 function App() {
   const [files, setFiles] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [url, setURL] = useState('');
 
   useEffect(() => {
     if (files !== null) {
       console.log(files);
+      setLoading(true);
       if (files[0].type.startsWith('image')) {
         // send img info to API, get back signed URL
         axios
@@ -29,6 +31,7 @@ function App() {
             // use signed URL as endpoint to send img
             axios.put(uploadURL, files[0]).then((res) => {
               console.log(res);
+              setLoading(false);
               setURL(
                 'https://jlnupload.s3.us-east-1.amazonaws.com/' + files[0].name
               );
@@ -44,7 +47,7 @@ function App() {
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen">
       {!files && <ImageChooser files={files} setFiles={setFiles} />}
-      {files && <Loading />}
+      {loading && !url && <Loading />}
       {url && <ResponseScreen url={url} />}
     </div>
   );
