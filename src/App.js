@@ -27,15 +27,22 @@ function App() {
             const { uploadURL } = res.data;
             console.log(uploadURL);
             // use signed URL as endpoint to send img
-            // setURL(return value)
-            // setFiles(null)
+            axios.put(uploadURL, files[0]).then((res) => {
+              console.log(res);
+              // setURL(return value)
+              setURL(
+                'https://jlnupload.s3.us-east-1.amazonaws.com/' + files[0].name
+              );
+              // setFiles(null)
+              setFiles(null);
+            });
           })
           .catch((err) => {
             console.log(JSON.stringify(err));
           });
       }
     }
-  }, [files]);
+  }, [files, url]);
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen">
