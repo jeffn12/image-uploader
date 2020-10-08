@@ -21,7 +21,7 @@ describe('My tests', () => {
 
 describe('User Stories', () => {
   test('User story: I can drag and drop an image to upload it', () => {
-    const { getByRole } = render(<ImageChooser />);
+    const { getByRole } = render(<ImageChooser setFiles={() => {}} />);
     const dropzone = getByRole('generic', { name: 'imageDropZone' });
     const dropEvent = createEvent.drop(dropzone);
     const fileList = [
@@ -39,9 +39,9 @@ describe('User Stories', () => {
     fireEvent(dropzone, dropEvent);
   });
   test('User story: I can choose to select an image from my folder', () => {
-    render(<ImageChooser />);
+    render(<ImageChooser setFiles={() => {}} />);
     const button = document.getElementById('fileChooserButton');
-    fireEvent.click(button, {
+    fireEvent.input(button, {
       target: {
         files: [new File(['test'], 'test_file.jpg', { type: 'image/jpg' })],
       },

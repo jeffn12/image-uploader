@@ -10,18 +10,18 @@ function ImageChooser(props) {
 
   const handleFileDrop = (e) => {
     e.preventDefault();
-    const files = Object.keys(e.dataTransfer.files).map(
-      (file) => e.dataTransfer.files[file]
-    );
-    props.setFiles(files);
+    handleFiles(e.dataTransfer.files);
     setHighlight(false);
   };
 
   const handleFilesAdded = (e) => {
     e.preventDefault();
-    const files = Object.keys(e.target.files).map(
-      (file) => e.target.files[file]
-    );
+    handleFiles(e.target.files);
+  };
+
+  const handleFiles = (fileList) => {
+    console.log(props);
+    const files = Object.keys(fileList).map((file) => fileList[file]);
     props.setFiles(files);
   };
 

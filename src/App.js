@@ -39,6 +39,7 @@ function App() {
           })
           .catch((err) => {
             console.log(JSON.stringify(err));
+            // TODO: handle error in the UI/alert user
           });
       }
     }
@@ -46,7 +47,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen">
-      {!files && <ImageChooser files={files} setFiles={setFiles} />}
+      {!files && <ImageChooser setFiles={setFiles} />}
       {loading && !url && <Loading />}
       {url && <ResponseScreen url={url} />}
     </div>
