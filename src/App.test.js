@@ -25,7 +25,7 @@ describe('User Stories', () => {
     const dropzone = getByRole('generic', { name: 'imageDropZone' });
     const dropEvent = createEvent.drop(dropzone);
     const fileList = [
-      new File(['test'], 'test_file.jpg', { type: 'image/jpg' }),
+      new File(['test'], 'test_file.pdf', { type: 'application/pdf' }),
     ];
     Object.defineProperty(dropEvent, 'dataTransfer', {
       value: {
@@ -43,7 +43,9 @@ describe('User Stories', () => {
     const button = document.getElementById('fileChooserButton');
     fireEvent.input(button, {
       target: {
-        files: [new File(['test'], 'test_file.jpg', { type: 'image/jpg' })],
+        files: [
+          new File(['test'], 'test_file.pdf', { type: 'application/pdf' }),
+        ],
       },
     });
   });
