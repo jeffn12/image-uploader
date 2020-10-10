@@ -20,7 +20,6 @@ function ImageChooser(props) {
   };
 
   const handleFiles = (fileList) => {
-    console.log(props);
     const files = Object.keys(fileList).map((file) => fileList[file]);
     props.setFiles(files);
   };

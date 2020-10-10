@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     if (files !== null) {
-      console.log(files);
       setLoading(true);
       if (files[0].type.startsWith('image')) {
         // send img info to API, get back signed URL
@@ -25,12 +24,9 @@ function App() {
             }
           )
           .then((res) => {
-            console.log(res);
             const { uploadURL } = res.data;
-            console.log(uploadURL);
             // use signed URL as endpoint to send img
             axios.put(uploadURL, files[0]).then((res) => {
-              console.log(res);
               setLoading(false);
               setURL(
                 'https://jlnupload.s3.us-east-1.amazonaws.com/' + files[0].name
@@ -38,8 +34,11 @@ function App() {
             });
           })
           .catch((err) => {
-            console.log(JSON.stringify(err));
+            console.error(err);
             // TODO: handle error in the UI/alert user
+            alert('There was a problem uploading that file: ' + err.message);
+            setFiles(null);
+            setLoading(false);
           });
       }
     }
