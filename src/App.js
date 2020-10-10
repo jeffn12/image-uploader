@@ -12,8 +12,8 @@ function App() {
 
   useEffect(() => {
     if (files !== null) {
-      setLoading(true);
       if (files[0].type.startsWith('image')) {
+        setLoading(true);
         // send img info to API, get back signed URL
         axios
           .post(
@@ -40,6 +40,9 @@ function App() {
             setFiles(null);
             setLoading(false);
           });
+      } else {
+        alert('Invalid File Type: only images are supported at this time.');
+        setFiles(null);
       }
     }
   }, [files, url]);
